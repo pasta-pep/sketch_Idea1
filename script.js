@@ -2,8 +2,7 @@ let sharpie;
 const drops = [];
 
 function preload() {
-    sharpie = loadImage(
-        "sharpie.png",
+    sharpie = loadImage("assets/sharpie.png",
         () => console.log("Image loaded successfully!"),
         () => console.log("Failed to load image!")
     );
@@ -17,7 +16,8 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    
+    background(0, 255, 0);
     for (let drop of drops) {
         drop.fall();
         drop.show();
