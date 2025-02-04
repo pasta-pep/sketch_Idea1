@@ -2,7 +2,7 @@ let sharpie;
 const drops = [];
 
 function preload() {
-    sharpie = loadImage("assets/sharpie.png",
+    sharpie = loadImage("sharpie.png",
         () => console.log("Image loaded successfully!"),
         () => console.log("Failed to load image!")
     );
