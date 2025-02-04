@@ -1,32 +1,31 @@
 let sharpie;
 const drops = [];
 
-function preload () {
-    sharpie = loadImage("sharpie.png",
-    () => console.log("image load Succesfully!"),
-    () => console.log("failed to load image!")
-
+function preload() {
+    sharpie = loadImage(
+        "sharpie.png",
+        () => console.log("Image loaded successfully!"),
+        () => console.log("Failed to load image!")
     );
-
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    for(let i = 0; i < 50; i++) {
+    for (let i = 0; i < 50; i++) {
         drops.push(new Raindrop());
     }
 }
 
 function draw() {
     background(0);
-    for(let drop of drops) {
+    for (let drop of drops) {
         drop.fall();
         drop.show();
     }
 }
 
 class Raindrop {
-    constructor(){
+    constructor() {
         this.x = random(width);
         this.y = random(-500, height);
         this.speed = random(2, 5);
@@ -37,12 +36,14 @@ class Raindrop {
         this.y += this.speed;
         if (this.y > height) {
             this.y = random(-50, -10);
-            this.x = random (width);
+            this.x = random(width);
         }
     }
 
     show() {
-        image(sharpie, this.x, this.y, this.size, this.size);
+        if (sharpie) { // Prevent errors if the image fails to load
+            image(sharpie, this.x, this.y, this.size, this.size);
+        }
     }
 }
 
