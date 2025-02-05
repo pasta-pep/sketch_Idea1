@@ -1,10 +1,28 @@
 let sharpie;
+let americaSlanted;
+let space;
+let trumpFlag;
 const drops = [];
 
 function preload() {
     sharpie = loadImage("sharpie.png",
         () => console.log("Image loaded successfully!"),
         () => console.log("Failed to load image!")
+    );
+
+    americaSlanted = loadImage("americaSlanted.png",
+        () => console.log("map background loaded succesfully!"),
+        () => console.log("failed to load map badkground")
+    );
+
+    space = loadImage("space.jpg",
+        () => console.log("space background loaded succesfully!"),
+        () => console.log("failed to load space badkground")
+    );
+
+    trumpFlag = loadImage("trumpFlag.png",
+        () => console.log("space background loaded succesfully!"),
+        () => console.log("failed to load space badkground")
     );
 }
 
@@ -17,7 +35,12 @@ function setup() {
 
 function draw() {
     
-    background(0, 255, 0);
+    image(space, 0, 0, width, height);
+
+    image(americaSlanted, 0, 0, width, height);
+
+    image(trumpFlag, 0, 0, width, height);
+   
     for (let drop of drops) {
         drop.fall();
         drop.show();
@@ -29,7 +52,7 @@ class Raindrop {
         this.x = random(width);
         this.y = random(-500, height);
         this.speed = random(2, 5);
-        this.size = random(20, 50);
+        this.size = random(400, 800);
     }
 
     fall() {
