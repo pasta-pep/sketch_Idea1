@@ -39,7 +39,17 @@ function draw() {
 
     image(americaSlanted, 0, 0, width, height);
 
-    image(trumpFlag, 0, 0, width, height);
+    if (trumpFlag) {
+        let trumpFlagWidth = 900;  // Set Trump flag width
+        let trumpFlagHeight = 750; // Set Trump flag height
+        let trumpFlagX = (width - trumpFlagWidth) / 2; // Right corner
+        let trumpFlagY = (height - trumpFlagHeight) / 2; // Bottom corner
+
+        image(trumpFlag, trumpFlagX, trumpFlagY, trumpFlagWidth, trumpFlagHeight);
+    } else {
+        console.log("Trump flag is not loaded yet!");
+    } 
+    // image(trumpFlag, 0, 0, width, height);
    
     for (let drop of drops) {
         drop.fall();
@@ -50,7 +60,7 @@ function draw() {
 class Raindrop {
     constructor() {
         this.x = random(width);
-        this.y = random(-500, height);
+        this.y = random(-500, -1000);
         this.speed = random(2, 5);
         this.size = random(400, 800);
     }
@@ -58,7 +68,7 @@ class Raindrop {
     fall() {
         this.y += this.speed;
         if (this.y > height) {
-            this.y = random(-50, -10);
+            this.y = random(-50, -1000);
             this.x = random(width);
         }
     }
