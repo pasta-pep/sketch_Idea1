@@ -37,8 +37,11 @@ function setup() {
 function draw() {
     
     image(space, 0, 0, width, height);
-
-    image(americaSlanted, 0, 0, width, height);
+    
+    let americaX = -10;  // Move americaSlanted to the left
+    image(americaSlanted, americaX, 0, width, height);  // Move map left
+    // let americaSlanted = -30;
+    // image(americaSlanted, 0, 0, width, height);
 
     if (trumpFlag) {
         let trumpFlagWidth = 900;  // Set Trump flag width
