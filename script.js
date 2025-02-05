@@ -28,6 +28,7 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    let totalDrops = 50;
     for (let i = 0; i < 50; i++) {
         drops.push(new Raindrop());
     }
@@ -59,7 +60,7 @@ function draw() {
 
 class Raindrop {
     constructor() {
-        this.x = random(width);
+        this.x = random(-300, width + 100);
         this.y = random(-500, -1000);
         this.speed = random(2, 5);
         this.size = random(400, 800);
@@ -69,7 +70,7 @@ class Raindrop {
         this.y += this.speed;
         if (this.y > height) {
             this.y = random(-50, -1000);
-            this.x = random(width);
+            this.x = random(-300, width + 100);
         }
     }
 
